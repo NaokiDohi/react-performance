@@ -1,5 +1,5 @@
 DOCKER ?= docker
-API ?= todo
+API ?= task
 
 .PHONY: build
 build:
