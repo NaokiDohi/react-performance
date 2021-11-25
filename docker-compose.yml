@@ -1,0 +1,38 @@
+version: "3.9"
+services:
+  # db:
+  #   image: postgres
+  #   volumes:
+  #     - ./postgres:/var/lib/postgresql/data
+  #   environment:
+  #     - POSTGRES_DB=postgres
+  #     - POSTGRES_USER=root
+  #     - POSTGRES_PASSWORD=password
+  api:
+    build:
+      context: ./docker/python
+      dockerfile: Dockerfile_python
+    container_name: django
+    command: sh -c "cd api && python3 manage.py runserver 0.0.0.0:8000"
+    ## exited with code 0 対策
+    stdin_open: true
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"
+    # depends_on:
+    #   - db
+  node:
+    build:
+      context: ./docker/node
+      dockerfile: Dockerfile_node
+    container_name: react
+    tty: true
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "3000:3000"
+    user: node
+    command: sh -c "cd frontend && yarn start"
+# volumes:
+#   postgres:
