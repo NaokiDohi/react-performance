@@ -33,6 +33,6 @@ services:
     ports:
       - "3000:3000"
     user: node
-    # command: sh -c "cd frontend && yarn start"
+    command: sh -c "cd front && yarn start"
 # volumes:
 #   postgres:
