@@ -36,8 +36,23 @@ pip:
 
 .PHONY: run-front
 run-front:
-	$(DOCKER)-compose run --rm node npx create-react-app front
+	$(DOCKER)-compose run --rm node npx create-react-app front --template redux-typescript
 
 .PHONY: yarn-add
 yarn-add:
-	$(DOCKER)-compose run --rm node sh -c "cd front && yarn add axios"
+	$(DOCKER)-compose run --rm node sh -c "cd front && \
+	yarn add -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9 && \
+	yarn add axios@0.21.1 &&\
+	yarn add @craco/craco &&\
+	yarn add react-query &&\
+	yarn add react-query-devtools &&\
+	yarn add react-router-dom &&\
+	yarn add @types/react-router-dom &&\
+	yarn add axios@0.21.1 &&\
+	yarn add @heroicons/react"
+
+.PHONY: front-setup
+front-setup:
+	$(DOCKER)-compose run --rm node sh -c "cd front && \
+	touch craco.config.js && npx tailwindcss init -p &&\
+	touch .prettierrc"
