@@ -10,7 +10,7 @@ interface StateContextType {
 
 const StateContext = createContext({} as StateContextType);
 
-export const StateProvider = ({ children }: { children: React.ReactNode }) => {
+export const StateProvider : React.FC = ({ children }) => {
     const [tasks, setTasks] = useState<Task[] | null>(null); // serverから取得したデータを保持する
     const [dark, setDark] = useState<boolean>(false); // Reactの状態を保持する
 
