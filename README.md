@@ -25,13 +25,13 @@ command: sh -c "cd frontend && yarn start"
 4. make yarn-add
 5. ここでコメントアウトをはずす。
 6. make build-up
-7. package.jsonに以下の内容を追記。
-    "proxy": "http://api:8000",
-   settings.pyに以下2つの内容を追記。 
-   ALLOWED_HOSTS = ["api"]
-   CORS_ORIGIN_WHITELIST = [
-   'http://node:3000'
-   ]
+7. package.jsonに以下の内容を追記。  
+    "proxy": "http://api:8000",  
+   settings.pyに以下2つの内容を追記。   
+   ALLOWED_HOSTS = ["api"]  
+   CORS_ORIGIN_WHITELIST = [  
+   'http://node:3000'  
+   ]  
 8. make down
 
 <!-- 以下makeが実行できない時
