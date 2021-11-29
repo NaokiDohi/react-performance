@@ -9,6 +9,7 @@ import { ReactQueryB } from './components/ReactQueryB';
 import { ClassicalFetchA } from './components/ClassicalFetchA';
 import { ClassicalFetchB } from './components/ClassicalFetchB';
 import { MainContext } from './components/MainContext';
+import { MainRTKit } from './components/MainRTKit';
 
 const queryClient = new QueryClient({
     // useQueryにここで決めたデフォルトオプションが適用される
@@ -36,6 +37,7 @@ const App: VFC = () => {
               <Route path="/fetch-a" element={<ClassicalFetchA/>} />
               <Route path="/fetch-b" element={<ClassicalFetchB/>} />
               <Route path="/main-context" element={<MainContext/>} />
+              <Route path="/main-rtkit" element={<MainRTKit/>} />
             </Routes>
           </Layout>
         </StateProvider>
