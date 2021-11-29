@@ -9,7 +9,7 @@ import { ReactQueryB } from './components/ReactQueryB';
 import { ClassicalFetchA } from './components/ClassicalFetchA';
 import { ClassicalFetchB } from './components/ClassicalFetchB';
 import { MainContext } from './components/MainContext';
-import { MainRTKit } from './components/MainRTkit';
+import { MainRTKit } from './components/MainRTKit';
 
 const queryClient = new QueryClient({
     // useQueryにここで決めたデフォルトオプションが適用される
